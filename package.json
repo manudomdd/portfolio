@@ -1,0 +1,22 @@
+{
+  "name": "portfolio-manuel-dominguez",
+  "version": "1.0.0",
+  "description": "Portfolio profesional de Manuel Dominguez - Backend Developer & Workday Specialist",
+  "author": "Manuel Dominguez",
+  "license": "MIT",
+  "scripts": {
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "portfolio",
+    "backend",
+    "java",
+    "spring-boot",
+    "workday",
+    "developer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tuusuario/portfolio"
+  }
+}

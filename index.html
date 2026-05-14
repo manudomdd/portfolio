@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio profesional de Manuel Dominguez — Desarrollador Backend & Integraciones | Java · Spring Boot · Workday" />
+  <title>Manuel Dominguez — Backend Developer</title>
+
+  <!-- ═══════════════════════════════════════════════
+       FUENTES: Syne (títulos) + JetBrains Mono (técnico) + DM Sans (cuerpo)
+       ═══════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <!-- ═══════════════════════════════════════════════
+       ICONOS: Lucide Icons vía CDN (ligeros y elegantes)
+       ═══════════════════════════════════════════════ -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ╔══════════════════════════════════════════════════╗
+       ║              NAVBAR (STICKY + GLASSMORPHISM)     ║
+       ╚══════════════════════════════════════════════════╝ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+    <div class="nav-container">
+      <!-- Logo / Marca personal -->
+      <a href="#hero" class="nav-logo" aria-label="Ir al inicio">
+        <span class="logo-bracket">[</span>
+        <span class="logo-name">MD</span>
+        <span class="logo-bracket">]</span>
+      </a>
+
+      <!-- Menú de navegación -->
+      <ul class="nav-links" role="list">
+        <li><a href="#about" class="nav-link">Sobre mí</a></li>
+        <li><a href="#skills" class="nav-link">Habilidades</a></li>
+        <li><a href="#projects" class="nav-link">Proyectos</a></li>
+        <li><a href="#contact" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <!-- Botón CTA en navbar -->
+      <a href="#contact" class="nav-cta">
+        <i data-lucide="send" aria-hidden="true"></i>
+        Contrátame
+      </a>
+
+      <!-- Hamburger para mobile -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+
+    <!-- Menú mobile -->
+    <div class="nav-mobile" id="navMenu" aria-hidden="true">
+      <a href="#about" class="nav-mobile-link">Sobre mí</a>
+      <a href="#skills" class="nav-mobile-link">Habilidades</a>
+      <a href="#projects" class="nav-mobile-link">Proyectos</a>
+      <a href="#contact" class="nav-mobile-link">Contacto</a>
+    </div>
+  </nav>
+
+
+  <!-- ╔══════════════════════════════════════════════════╗
+       ║                   HERO SECTION                   ║
+       ║  Canvas de partículas reactivo al ratón          ║
+       ╚══════════════════════════════════════════════════╝ -->
+  <section class="hero" id="hero">
+    <!-- Canvas: el fondo de partículas se renderiza aquí via JS -->
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+
+    <!-- Rejilla decorativa de fondo -->
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <!-- Etiqueta de rol técnico -->
+      <p class="hero-eyebrow" data-reveal>
+        <span class="eyebrow-dot" aria-hidden="true"></span>
+        Disponible para nuevas oportunidades
+      </p>
+
+      <!-- Nombre principal -->
+      <h1 class="hero-title" data-reveal data-delay="100">
+        <span class="title-line">Manuel</span>
+        <span class="title-line title-accent">Dominguez</span>
+      </h1>
+
+      <!-- Especialización con efecto de escritura -->
+      <p class="hero-subtitle" data-reveal data-delay="200">
+        Desarrollador Backend &amp; Integraciones
+      </p>
+
+      <!-- Tech stack destacado -->
+      <div class="hero-stack" data-reveal data-delay="300" aria-label="Tecnologías principales">
+        <!-- ░ PERSONALIZABLE: añade o quita tecnologías aquí ░ -->
+        <span class="stack-badge">Java</span>
+        <span class="stack-divider" aria-hidden="true">·</span>
+        <span class="stack-badge">Spring Boot</span>
+        <span class="stack-divider" aria-hidden="true">·</span>
+        <span class="stack-badge">Workday</span>
+      </div>
+
+      <!-- Botones CTA -->
+      <div class="hero-actions" data-reveal data-delay="400">
+        <a href="#projects" class="btn btn-primary">
+          <i data-lucide="layout-grid" aria-hidden="true"></i>
+          Ver Proyectos
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <i data-lucide="file-text" aria-hidden="true"></i>
+          Contactar
+        </a>
+      </div>
+    </div>
+
+    <!-- Flecha de scroll hacia abajo -->
+    <a href="#about" class="hero-scroll" aria-label="Desplazarse hacia abajo">
+      <i data-lucide="chevrons-down" aria-hidden="true"></i>
+    </a>
+  </section>
+
+
+  <!-- ╔══════════════════════════════════════════════════╗
+       ║                SOBRE MÍ (ABOUT)                  ║
+       ╚══════════════════════════════════════════════════╝ -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-label">
+          <i data-lucide="user" aria-hidden="true"></i>
+          01 / Sobre mí
+        </span>
+        <h2 class="section-title">Quién soy &amp; qué aporto</h2>
+      </div>
+
+      <div class="about-grid">
+        <!-- Avatar / Foto -->
+        <div class="about-avatar-wrapper" data-reveal>
+          <div class="about-avatar" aria-label="Foto de Manuel Dominguez">
+            <!-- Foto real: reemplaza la ruta por tu foto; la imagen ocupará todo el cuadro -->
+            <img src="img/fotoperfil.png" alt="Manuel Dominguez" class="avatar-img" />
+            <!-- Iniciales opcionales (ocultas por defecto) -->
+            <span class="avatar-initials" aria-hidden="true">MD</span>
+          </div>
+          <!-- Decoración geométrica del avatar -->
+          <div class="avatar-ring" aria-hidden="true"></div>
+          <div class="avatar-dot avatar-dot-1" aria-hidden="true"></div>
+          <div class="avatar-dot avatar-dot-2" aria-hidden="true"></div>
+        </div>
+
+        <!-- Texto sobre mí -->
+        <div class="about-text">
+          <p class="about-intro" data-reveal>
+            <!--░ PERSONALIZABLE: edita estos párrafos con tu historia real ░-->
+            Soy un desarrollador Backend con experiencia en la construcción de sistemas
+            robustos y escalables usando <strong>Java</strong> y <strong>Spring Boot</strong>.
+            Mi especialidad son las <strong>integraciones empresariales con Workday</strong>,
+            conectando sistemas de negocio complejos con fiabilidad y eficiencia.
+          </p>
+          <p class="about-body" data-reveal data-delay="100">
+            Me apasiona escribir código limpio, diseñar APIs que otros devs disfruten
+            consumir y resolver problemas de integración que parecen imposibles. Busco
+            equipos donde la calidad técnica importa y donde pueda seguir creciendo.
+          </p>
+
+          <!-- Métricas rápidas (puntos de venta para reclutadores) -->
+          <div class="about-metrics" data-reveal data-delay="200">
+            <!-- ░ PERSONALIZABLE: cambia los números y etiquetas ░ -->
+            <div class="metric-item">
+              <span class="metric-value">3<span class="metric-plus">+</span></span>
+              <span class="metric-label">Años de experiencia</span>
+            </div>
+            <div class="metric-divider" aria-hidden="true"></div>
+            <div class="metric-item">
+              <span class="metric-value">10<span class="metric-plus">+</span></span>
+              <span class="metric-label">Proyectos completados</span>
+            </div>
+            <div class="metric-divider" aria-hidden="true"></div>
+            <div class="metric-item">
+              <span class="metric-value">5<span class="metric-plus">+</span></span>
+              <span class="metric-label">Integraciones Workday</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════════════════════════╗
+       ║                HABILIDADES (SKILLS)              ║
+       ╚══════════════════════════════════════════════════╝ -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-label">
+          <i data-lucide="cpu" aria-hidden="true"></i>
+          02 / Habilidades
+        </span>
+        <h2 class="section-title">Stack técnico</h2>
+      </div>
+
+      <!-- Habilidades agrupadas por categoría -->
+      <div class="skills-grid">
+
+        <!-- ░ PERSONALIZABLE: edita cada categoría y sus skills ░ -->
+
+        <!-- Categoría: Backend -->
+        <div class="skill-category" data-reveal>
+          <h3 class="skill-category-title">
+            <i data-lucide="server" aria-hidden="true"></i>
+            Backend
+          </h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Java 17+</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="Java: nivel avanzado, 90%">
+                <div class="skill-bar-fill" data-width="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Spring Boot</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="Spring Boot: nivel avanzado, 88%">
+                <div class="skill-bar-fill" data-width="88"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Spring Security / JWT</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="Spring Security: nivel avanzado, 85%">
+                <div class="skill-bar-fill" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">REST APIs / OpenAPI</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="REST APIs: nivel avanzado, 92%">
+                <div class="skill-bar-fill" data-width="92"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoría: Integraciones -->
+        <div class="skill-category" data-reveal data-delay="100">
+          <h3 class="skill-category-title">
+            <i data-lucide="git-merge" aria-hidden="true"></i>
+            Integraciones
+          </h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Workday Studio</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="Workday Studio: nivel avanzado, 85%">
+                <div class="skill-bar-fill" data-width="85"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Workday RaaS / EIB</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="Workday RaaS: nivel avanzado, 90%">
+                <div class="skill-bar-fill" data-width="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Workday Core Connectors</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="Workday Core Connectors: nivel avanzado, 90%">
+                <div class="skill-bar-fill" data-width="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">SOAP / XML / XSLT / MVEL</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="SOAP XML: nivel avanzado, 85%">
+                <div class="skill-bar-fill" data-width="85"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Categoría: Datos & DevOps -->
+        <div class="skill-category" data-reveal data-delay="200">
+          <h3 class="skill-category-title">
+            <i data-lucide="database" aria-hidden="true"></i>
+            Datos &amp; DevOps
+          </h3>
+          <div class="skill-items">
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">PostgreSQL / MySQL</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="PostgreSQL: nivel avanzado, 90%">
+                <div class="skill-bar-fill" data-width="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Docker / Kubernetes</span>
+                <span class="skill-level">Intermedio</span>
+              </div>
+              <div class="skill-bar" aria-label="Docker: nivel intermedio, 72%">
+                <div class="skill-bar-fill" data-width="72"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">Git / Github</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="Git / Github: nivel avanzado, 90%">
+                <div class="skill-bar-fill" data-width="90"></div>
+              </div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-info">
+                <span class="skill-name">JUnit 5 / Mockito</span>
+                <span class="skill-level">Avanzado</span>
+              </div>
+              <div class="skill-bar" aria-label="JUnit: nivel avanzado, 83%">
+                <div class="skill-bar-fill" data-width="83"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badges de tecnologías adicionales -->
+        <div class="skill-badges-wrapper" data-reveal data-delay="300">
+          <h3 class="skill-category-title">
+            <i data-lucide="layers" aria-hidden="true"></i>
+            También trabajo con
+          </h3>
+          <div class="skill-badges">
+            <!-- ░ PERSONALIZABLE: añade o quita badges según tu stack ░ -->
+            <span class="skill-badge">Maven</span>
+            <span class="skill-badge">Gradle</span>
+            <span class="skill-badge">Hibernate / JPA</span>
+            <span class="skill-badge">Swagger / OpenAPI</span>
+            <span class="skill-badge">Git</span>
+            <span class="skill-badge">Linux</span>
+            <span class="skill-badge">IntelliJ IDEA</span>
+            <span class="skill-badge">Postman</span>
+            <span class="skill-badge">Jira</span>
+            <span class="skill-badge">Confluence</span>
+            <span class="skill-badge">Agile / Scrum</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════════════════════════╗
+       ║              PROYECTOS (SECCIÓN ESTRELLA)        ║
+       ║  ░░░  ZONA MÁS PERSONALIZABLE DEL PORTFOLIO ░░░ ║
+       ╚══════════════════════════════════════════════════╝ -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-label">
+          <i data-lucide="folder-open" aria-hidden="true"></i>
+          03 / Proyectos
+        </span>
+        <h2 class="section-title">Trabajo personal</h2>
+        <p class="section-subtitle">
+          Proyectos construidos desde cero para resolver problemas reales
+          y explorar tecnologías que me apasionan.
+        </p>
+      </div>
+
+      <!-- Grid de tarjetas de proyectos -->
+      <div class="projects-grid">
+
+        <!-- ╔══════════════════════════════════════╗
+             ║  TARJETA DE PROYECTO 1               ║
+             ║  ░ PERSONALIZA: título, descripción, ║
+             ║    techs, links de GitHub/demo       ░ ║
+             ╚══════════════════════════════════════╝ -->
+        <article class="project-card" data-reveal>
+          <!-- Imagen/icono del proyecto -->
+          <div class="card-featured-badge" aria-label="Proyecto destacado">⭐ Destacado</div>
+
+          <div class="card-header">
+            <div class="card-icon" aria-hidden="true">
+              <!-- ░ Cambia el icono Lucide según el proyecto ░ -->
+              <i data-lucide="workflow"></i>
+            </div>
+            <div class="card-links">
+              <!-- ░ PERSONALIZA: pon las URLs reales de tu proyecto ░ -->
+              <a href="https://github.com/manudomdd/GymTrack" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="Ver código en GitHub">
+                <i data-lucide="github" aria-hidden="true"></i>
+              </a>
+              <a href="https://gymtrack.netlify.app" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="Ver demo en vivo">
+                <i data-lucide="external-link" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contenido de la tarjeta -->
+          <div class="card-body">
+            <!-- ░ PERSONALIZA: nombre del proyecto ░ -->
+            <h3 class="card-title">GymTrack</h3>
+
+            <!-- ░ PERSONALIZA: descripción breve (2-3 líneas ideales) ░ -->
+            <p class="card-description">
+              Aplicación móvil centrada en la gestión de las relaciones entre entrenadores personales y clientes
+            </p>
+          </div>
+
+          <!-- Tags de tecnologías usadas -->
+          <div class="card-footer">
+            <div class="card-tags" aria-label="Tecnologías usadas">
+              <!-- ░ PERSONALIZA: tecnologías del proyecto ░ -->
+              <span class="card-tag">Java 17</span>
+              <span class="card-tag">Spring Boot</span>
+              <span class="card-tag">Spring Security</span>
+              <span class="card-tag">JPA / Hibernate</span>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ╔══════════════════════════════════════╗
+             ║  TARJETA DE PROYECTO 2               ║
+             ╚══════════════════════════════════════╝ -->
+        <article class="project-card featured" data-reveal data-delay="100">
+          <!-- Badge "Destacado" – quita si no quieres destacarlo -->
+          <div class="card-featured-badge" aria-label="Proyecto destacado">⭐ Destacado</div>
+
+          <div class="card-header">
+            <div class="card-icon" aria-hidden="true">
+              <!-- ░ Cambia el icono ░ -->
+              <i data-lucide="shield-check"></i>
+            </div>
+            <div class="card-links">
+              <!-- ░ PERSONALIZA URLs ░ -->
+              <a href="https://github.com/tuusuario/proyecto-2" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="Ver código en GitHub">
+                <i data-lucide="github" aria-hidden="true"></i>
+              </a>
+              <a href="https://demo-proyecto-2.com" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="Ver demo en vivo">
+                <i data-lucide="external-link" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <!-- ░ PERSONALIZA nombre ░ -->
+            <h3 class="card-title">Spring Auth Microservice</h3>
+
+            <!-- ░ PERSONALIZA descripción ░ -->
+            <p class="card-description">
+              Microservicio de autenticación y autorización basado en JWT y
+              OAuth 2.0. Incluye gestión de roles, auditoría de accesos
+              y soporte para múltiples tenants empresariales.
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <div class="card-tags" aria-label="Tecnologías usadas">
+              <!-- ░ PERSONALIZA tecnologías ░ -->
+              <span class="card-tag">Spring Security</span>
+              <span class="card-tag">JWT</span>
+              <span class="card-tag">OAuth 2.0</span>
+              <span class="card-tag">Docker</span>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ╔══════════════════════════════════════╗
+             ║  TARJETA DE PROYECTO 3               ║
+             ╚══════════════════════════════════════╝ -->
+        <article class="project-card" data-reveal data-delay="200">
+          <div class="card-header">
+            <div class="card-icon" aria-hidden="true">
+              <i data-lucide="bar-chart-2"></i>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/tuusuario/proyecto-3" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="Ver código en GitHub">
+                <i data-lucide="github" aria-hidden="true"></i>
+              </a>
+              <!-- Si no hay demo, elimina este enlace -->
+              <a href="https://demo-proyecto-3.com" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="Ver demo en vivo">
+                <i data-lucide="external-link" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">HR Analytics Dashboard API</h3>
+            <p class="card-description">
+              API RESTful que expone métricas de recursos humanos extraídas
+              de Workday mediante RaaS. Soporta filtros dinámicos, paginación
+              y exportación a CSV/Excel desde el backend.
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="card-tag">Java</span>
+              <span class="card-tag">Spring Boot</span>
+              <span class="card-tag">Workday RaaS</span>
+              <span class="card-tag">Kafka</span>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ╔══════════════════════════════════════╗
+             ║  TARJETA DE PROYECTO 4               ║
+             ╚══════════════════════════════════════╝ -->
+        <article class="project-card" data-reveal data-delay="300">
+          <div class="card-header">
+            <div class="card-icon" aria-hidden="true">
+              <i data-lucide="zap"></i>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/tuusuario/proyecto-4" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="Ver código en GitHub">
+                <i data-lucide="github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">Event-Driven Notification Engine</h3>
+            <p class="card-description">
+              Motor de notificaciones basado en eventos con Apache Kafka.
+              Gestiona alertas de nómina, aprobaciones de workflows de Workday
+              y notificaciones multicanal (email, Slack, SMS).
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="card-tag">Kafka</span>
+              <span class="card-tag">Spring Boot</span>
+              <span class="card-tag">Redis</span>
+              <span class="card-tag">Docker</span>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ╔══════════════════════════════════════╗
+             ║  TARJETA DE PROYECTO 5               ║
+             ╚══════════════════════════════════════╝ -->
+        <article class="project-card" data-reveal data-delay="100">
+          <div class="card-header">
+            <div class="card-icon" aria-hidden="true">
+              <i data-lucide="code-2"></i>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/tuusuario/proyecto-5" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="Ver código en GitHub">
+                <i data-lucide="github" aria-hidden="true"></i>
+              </a>
+              <a href="https://demo-proyecto-5.com" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="Ver demo en vivo">
+                <i data-lucide="external-link" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">API Gateway con Rate Limiting</h3>
+            <p class="card-description">
+              Gateway centralizado con Spring Cloud Gateway que implementa
+              rate limiting por IP y usuario, circuit breaker, y enrutamiento
+              dinámico para una arquitectura de microservicios.
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="card-tag">Spring Cloud</span>
+              <span class="card-tag">Gateway</span>
+              <span class="card-tag">Redis</span>
+              <span class="card-tag">Resilience4j</span>
+            </div>
+          </div>
+        </article>
+
+
+        <!-- ╔══════════════════════════════════════╗
+             ║  TARJETA DE PROYECTO 6               ║
+             ╚══════════════════════════════════════╝ -->
+        <article class="project-card" data-reveal data-delay="200">
+          <div class="card-header">
+            <div class="card-icon" aria-hidden="true">
+              <i data-lucide="refresh-cw"></i>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/tuusuario/proyecto-6" class="card-link" target="_blank" rel="noopener noreferrer" aria-label="Ver código en GitHub">
+                <i data-lucide="github" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <h3 class="card-title">Data Sync Pipeline</h3>
+            <p class="card-description">
+              Pipeline de sincronización de datos entre Workday y sistemas
+              ERP legacy. Transforma datos mediante XSLT, valida esquemas
+              XSD y garantiza la idempotencia de cada transacción.
+            </p>
+          </div>
+
+          <div class="card-footer">
+            <div class="card-tags">
+              <span class="card-tag">XSLT</span>
+              <span class="card-tag">XML</span>
+              <span class="card-tag">Spring Batch</span>
+              <span class="card-tag">Java</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ░░░ FIN DE TARJETAS ░░░ -->
+        <!-- Para añadir más proyectos, duplica cualquier <article class="project-card"> -->
+
+      </div><!-- /projects-grid -->
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════════════════════════╗
+       ║                   CONTACTO                       ║
+       ╚══════════════════════════════════════════════════╝ -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-label">
+          <i data-lucide="mail" aria-hidden="true"></i>
+          04 / Contacto
+        </span>
+        <h2 class="section-title">Hablemos</h2>
+        <p class="section-subtitle">
+          ¿Tienes un proyecto interesante o una oportunidad que encaje?
+          Estoy abierto a escucharte.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Información de contacto y redes -->
+        <div class="contact-info" data-reveal>
+          <p class="contact-intro">
+            <!--░ PERSONALIZA con tu disponibilidad real ░-->
+            Actualmente disponible para roles de <strong>Backend Developer</strong>
+            o <strong>Integration Specialist</strong> tanto en remoto como en modalidad
+            híbrida. Tiempo de respuesta habitual: 24 horas.
+          </p>
+
+          <!-- Links sociales / profesionales -->
+          <div class="contact-social">
+            <!-- ░ PERSONALIZA: pon tu URL real de LinkedIn ░ -->
+            <a href="https://www.linkedin.com/in/manuel-dominguez-dev/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Perfil de LinkedIn">
+              <div class="social-icon">
+                <i data-lucide="linkedin" aria-hidden="true"></i>
+              </div>
+              <div class="social-info">
+                <span class="social-label">LinkedIn</span>
+                <span class="social-handle">linkedin.com/in/tuusuario</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="social-arrow" aria-hidden="true"></i>
+            </a>
+
+            <!-- ░ PERSONALIZA: pon tu URL real de GitHub ░ -->
+            <a href="https://github.com/tuusuario" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub">
+              <div class="social-icon">
+                <i data-lucide="github" aria-hidden="true"></i>
+              </div>
+              <div class="social-info">
+                <span class="social-label">GitHub</span>
+                <span class="social-handle">github.com/tuusuario</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="social-arrow" aria-hidden="true"></i>
+            </a>
+
+            <!-- ░ PERSONALIZA: pon tu email real ░ -->
+            <a href="mailto:manuel@ejemplo.com" class="social-link" aria-label="Enviar email">
+              <div class="social-icon">
+                <i data-lucide="at-sign" aria-hidden="true"></i>
+              </div>
+              <div class="social-info">
+                <span class="social-label">Email directo</span>
+                <span class="social-handle">manuel@ejemplo.com</span>
+              </div>
+              <i data-lucide="arrow-up-right" class="social-arrow" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Formulario de contacto -->
+        <div class="contact-form-wrapper" data-reveal data-delay="200">
+          <form class="contact-form" id="contactForm" novalidate>
+
+            <!-- Fila 1: Nombre + Email -->
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="contactName">Nombre *</label>
+                <input
+                  type="text"
+                  id="contactName"
+                  name="name"
+                  class="form-input"
+                  placeholder="Tu nombre"
+                  autocomplete="name"
+                  required
+                  aria-required="true"
+                />
+                <span class="form-error" id="nameError" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactEmail">Email *</label>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  name="email"
+                  class="form-input"
+                  placeholder="tu@empresa.com"
+                  autocomplete="email"
+                  required
+                  aria-required="true"
+                />
+                <span class="form-error" id="emailError" role="alert" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <!-- Fila 2: Asunto -->
+            <div class="form-group">
+              <label class="form-label" for="contactSubject">Asunto</label>
+              <input
+                type="text"
+                id="contactSubject"
+                name="subject"
+                class="form-input"
+                placeholder="¿De qué trata tu mensaje?"
+                autocomplete="off"
+              />
+            </div>
+
+            <!-- Fila 3: Mensaje -->
+            <div class="form-group">
+              <label class="form-label" for="contactMessage">Mensaje *</label>
+              <textarea
+                id="contactMessage"
+                name="message"
+                class="form-input form-textarea"
+                placeholder="Cuéntame sobre el proyecto o la oportunidad..."
+                rows="5"
+                required
+                aria-required="true"
+              ></textarea>
+              <span class="form-error" id="messageError" role="alert" aria-live="polite"></span>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <i data-lucide="send" aria-hidden="true"></i>
+              <span class="btn-text">Enviar mensaje</span>
+              <span class="btn-loading" aria-hidden="true">Enviando...</span>
+            </button>
+
+            <!-- Mensaje de éxito -->
+            <div class="form-success" id="formSuccess" role="status" aria-live="polite" aria-hidden="true">
+              <i data-lucide="check-circle" aria-hidden="true"></i>
+              ¡Mensaje enviado! Te respondo en menos de 24 horas.
+            </div>
+
+          </form>
+        </div><!-- /contact-form-wrapper -->
+
+      </div><!-- /contact-grid -->
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════════════════════════╗
+       ║                    FOOTER                        ║
+       ╚══════════════════════════════════════════════════╝ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">
+          <!-- ░ PERSONALIZA con tu nombre y año ░ -->
+          &copy; <span id="footerYear"></span> Manuel Dominguez.
+          Construido con HTML, CSS &amp; JS.
+        </p>
+        <a href="#hero" class="footer-top" aria-label="Volver al inicio">
+          <i data-lucide="arrow-up" aria-hidden="true"></i>
+          Volver arriba
+        </a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Script principal (cargado al final para mejor performance) -->
+  <script src="js/script.js"></script>
+</body>
+</html>
